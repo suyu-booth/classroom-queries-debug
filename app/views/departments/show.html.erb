@@ -1,5 +1,5 @@
 <h1>
-  Department #<%= @department.id %> details
+  Department #<%= @department.id.to_s %> details
 </h1>
 
 <div>
@@ -9,14 +9,14 @@
 </div>
 
 <div>
-  <a href="/delete_department/<%= @department.id %>">
+  <a href="/delete_department/<%= @department.id.to_s %>">
     Delete department
   </a>
 </div>
 
 <hr>
 
-<form action="/modify_department/<%= @department.id %>" method="post">
+<form action="/modify_department/<%= @department.id.to_s %>" method="post">
   <div>
     <label for="name_box">
       Name
@@ -52,7 +52,7 @@
 <hr>
 
 <h2>Courses</h2>
-<% courses = Course.where({ :department_id => @department.name }) %>
+<% courses = Course.where({ :department_id => @department.id }) %>
 <ul>
   <% courses.each do |course| %>
     <li>
